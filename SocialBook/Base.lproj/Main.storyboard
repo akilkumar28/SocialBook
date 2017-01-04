@@ -101,6 +101,9 @@
                                                                     <constraint firstAttribute="width" constant="100" id="JCM-QU-gzJ"/>
                                                                 </constraints>
                                                                 <state key="normal" image="f"/>
+                                                                <connections>
+                                                                    <action selector="fbBtnPrssd:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tKY-o9-0Hl"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                     </stackView>
