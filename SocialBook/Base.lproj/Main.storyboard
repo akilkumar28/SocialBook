@@ -142,7 +142,7 @@
                                                                 <rect key="frame" x="0.0" y="40" width="283" height="30"/>
                                                                 <nil key="textColor"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                <textInputTraits key="textInputTraits"/>
+                                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                             </textField>
                                                         </subviews>
                                                     </stackView>
@@ -156,6 +156,9 @@
                                                                 <state key="normal" title="SIgn In">
                                                                     <color key="titleColor" red="0.99989169836044312" green="1" blue="0.99988096952438354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="signInBtnPrssd:" destination="BYZ-38-t0r" eventType="touchUpInside" id="G9v-J2-sSe"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                     </stackView>
@@ -201,7 +204,9 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="emailTxtFld" destination="h5q-mx-pKB" id="dDi-cH-D5w"/>
                         <outlet property="fbBtn" destination="EMo-Xt-hzW" id="5m2-3I-OhM"/>
+                        <outlet property="pswdTxtFld" destination="dwc-vN-Z5N" id="1SQ-lI-Uxi"/>
                         <outlet property="signInBtn" destination="Zqg-7B-C2E" id="nfC-iS-F7w"/>
                     </connections>
                 </viewController>

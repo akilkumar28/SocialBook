@@ -16,6 +16,9 @@ class SignInVC: UIViewController {
     @IBOutlet weak var signInBtn: FancyButton!
     @IBOutlet weak var fbBtn: FancyButton!
     
+    @IBOutlet weak var emailTxtFld: FancytxtFld!
+    
+    @IBOutlet weak var pswdTxtFld: FancytxtFld!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,20 +61,33 @@ class SignInVC: UIViewController {
     }
 
 
+    @IBAction func signInBtnPrssd(_ sender: Any) {
+        
+        guard let email = emailTxtFld.text, !email.isEmpty else{
+            print("Invalid Email ID")
+            return
+        }
+        guard let pwd = pswdTxtFld.text, !pwd.isEmpty else {
+            print("Invalid Password")
+            return
+        }
+        FIRAuth.auth()?.signIn(withEmail: email, password: pwd, completion: { (user, error) in
+            if error == nil {
+                print("Successfull Authentication With Email")
+            }else {
+                FIRAuth.auth()?.createUser(withEmail: email, password: pwd, completion: { (user, error) in
+                    if error != nil {
+                        print("Email Authentication Failed")
+                    } else {
+                        print("Successfull Authentication With Email")
+                    }
+                })
+            }
+        })
+    }
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+ 
     
     
 }
