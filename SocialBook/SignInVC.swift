@@ -10,9 +10,15 @@ import UIKit
 
 class SignInVC: UIViewController {
 
+    @IBOutlet weak var signInBtn: FancyButton!
+    @IBOutlet weak var fbBtn: FancyButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        fbBtn.fancyFbBtn()
+        signInBtn.textFldBtn()
         
     }
 
