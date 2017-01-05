@@ -14,6 +14,7 @@
 		898246661E1E8E1F00E2D336 /* FancyImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898246651E1E8E1F00E2D336 /* FancyImageView.swift */; };
 		898246681E1E8E8D00E2D336 /* Fancylabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898246671E1E8E8D00E2D336 /* Fancylabel.swift */; };
 		8982466A1E1E9E8200E2D336 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898246691E1E9E8200E2D336 /* PostCell.swift */; };
+		8982466C1E1EC72600E2D336 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8982466B1E1EC72600E2D336 /* DataService.swift */; };
 		89BCAAC61E1D2ABE00647E7E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BCAAC51E1D2ABE00647E7E /* AppDelegate.swift */; };
 		89BCAAC81E1D2ABE00647E7E /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BCAAC71E1D2ABE00647E7E /* SignInVC.swift */; };
 		89BCAACB1E1D2ABE00647E7E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89BCAAC91E1D2ABE00647E7E /* Main.storyboard */; };
@@ -32,6 +33,7 @@
 		898246651E1E8E1F00E2D336 /* FancyImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FancyImageView.swift; sourceTree = "<group>"; };
 		898246671E1E8E8D00E2D336 /* Fancylabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fancylabel.swift; sourceTree = "<group>"; };
 		898246691E1E9E8200E2D336 /* PostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
+		8982466B1E1EC72600E2D336 /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		89BCAAC21E1D2ABE00647E7E /* SocialBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocialBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89BCAAC51E1D2ABE00647E7E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		89BCAAC71E1D2ABE00647E7E /* SignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 		89BCAADB1E1D32CE00647E7E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				8982466B1E1EC72600E2D336 /* DataService.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -277,6 +280,7 @@
 				89BCAAC61E1D2ABE00647E7E /* AppDelegate.swift in Sources */,
 				892FD1F41E1D625200162345 /* FancytxtFld.swift in Sources */,
 				892FD1F01E1D5F1100162345 /* FancyView.swift in Sources */,
+				8982466C1E1EC72600E2D336 /* DataService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
