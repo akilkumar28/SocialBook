@@ -10,6 +10,7 @@ import UIKit
 import FBSDKCoreKit
 import FBSDKLoginKit
 import Firebase
+import SwiftKeychainWrapper
 
 class SignInVC: UIViewController {
 
@@ -25,6 +26,15 @@ class SignInVC: UIViewController {
         
         fbBtn.fancyFbBtn()
         signInBtn.textFldBtn()
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        if let _ = KeychainWrapper.standard.string(forKey: "uid"){
+            print("Successfully Entered Automatically")
+            performSegue(withIdentifier: "FeedVC", sender: nil)
+        }
         
     }
 
@@ -55,6 +65,9 @@ class SignInVC: UIViewController {
                 print("Firebase authentication Failed")
             } else {
                 print("Authentication Successfull With Firebase")
+                if let user = user{
+                    self.completeSignIn(id: user.uid)
+                }
             }
         })
         
@@ -74,21 +87,32 @@ class SignInVC: UIViewController {
         FIRAuth.auth()?.signIn(withEmail: email, password: pwd, completion: { (user, error) in
             if error == nil {
                 print("Successfull Authentication With Email")
+                if let user = user{
+                    self.completeSignIn(id: user.uid)
+                }
             }else {
                 FIRAuth.auth()?.createUser(withEmail: email, password: pwd, completion: { (user, error) in
                     if error != nil {
                         print("Email Authentication Failed")
                     } else {
                         print("Successfull Authentication With Email")
+                        if let user = user {
+                            self.completeSignIn(id: user.uid)
+                        }
                     }
                 })
             }
         })
     }
     
-    
+    func completeSignIn(id: String) {
+        
+        let saveSuccessfull = KeychainWrapper.standard.set(id, forKey: "uid")
+        print("Succesfull stored keyChain = \(saveSuccessfull)")
+        performSegue(withIdentifier: "FeedVC", sender: nil)
+        
+    }
  
-    
     
 }
 
