@@ -1,17 +1,16 @@
 //
-//  FancyButton.swift
+//  FancyImageView.swift
 //  SocialBook
 //
-//  Created by AKIL KUMAR THOTA on 1/4/17.
+//  Created by AKIL KUMAR THOTA on 1/5/17.
 //  Copyright © 2017 AKIL KUMAR THOTA. All rights reserved.
 //
 
 import UIKit
 
-class FancyButton: UIButton {
-    
+class FancyImageView: UIImageView {
+
     override func awakeFromNib() {
-        
         super.awakeFromNib()
         
         layer.shadowColor = UIColor.black.cgColor
@@ -19,18 +18,10 @@ class FancyButton: UIButton {
         layer.shadowOffset = CGSize.zero
         layer.shadowOpacity = 0.7
     }
-
-    func fancyFbBtn() {
-        layer.cornerRadius = self.frame.width / 2
-
-    }
     
-    func textFldBtn() {
-        layer.cornerRadius = 2
-        
-    }
-    func generalButn () {
-        layer.cornerRadius = 5.0
-    }
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        layer.cornerRadius = 5
 
+    }
 }

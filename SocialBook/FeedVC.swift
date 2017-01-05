@@ -11,11 +11,17 @@ import SwiftKeychainWrapper
 import Firebase
 
 class FeedVC: UIViewController {
+    
+    @IBOutlet weak var postbtn: FancyButton!
+    
+    
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
+        postbtn.generalButn()
         
     }
 
