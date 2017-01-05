@@ -14,6 +14,7 @@ class FancyButton: UIButton {
         
         super.awakeFromNib()
         
+        
         layer.shadowColor = UIColor.black.cgColor
         layer.shadowRadius = 5.0
         layer.shadowOffset = CGSize.zero
@@ -30,7 +31,9 @@ class FancyButton: UIButton {
         
     }
     func generalButn () {
+        layer.masksToBounds = true
         layer.cornerRadius = 5.0
+        
     }
 
 }

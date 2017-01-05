@@ -18,7 +18,7 @@ class FancytxtFld: UITextField {
         layer.shadowRadius = 5.0
         layer.shadowOffset = CGSize.zero
         layer.shadowOpacity = 0.7
-        layer.cornerRadius = 3
+        layer.cornerRadius = 2
         
     }
 
