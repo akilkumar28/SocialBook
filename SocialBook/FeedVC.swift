@@ -40,7 +40,7 @@ class FeedVC: UIViewController, UITableViewDelegate,UITableViewDataSource, UIIma
                 for snap in snapshot {
                     print("Individual Snal \(snap.value)")
                     
-                    if let postDict = snap.value as? Dictionary<String,AnyObject>{
+                    if let postDict = snap.value as? Dictionary<String,AnyObject> {
                         let key = snap.key
                         let post = Post(postkey: key, postdata: postDict)
                         self.postArray.append(post)
