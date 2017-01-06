@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class PostCell: UITableViewCell {
     
@@ -27,11 +28,28 @@ class PostCell: UITableViewCell {
         generalLikebtn.corner()
     }
     
-    func configureCell(post: Post) {
+    func configureCell(post: Post, img: UIImage? = nil) {
         
         caption.text = post.caption
         likecountLbl.text = "\(post.likes)"
         
+        if img != nil {
+            self.centerImg.image = img
+        } else {
+            let ref = FIRStorage.storage().reference(forURL: post.img_Url)
+            ref.data(withMaxSize: 2 * 1024 * 1024, completion: { (data, error) in
+                if error != nil {
+                    print("Unable to download the images")
+                } else {
+                    print("Images Downloaded Succesfully")
+                    if let imgData = data {
+                        let img = UIImage(data: imgData)
+                        self.centerImg.image = img
+                        FeedVC.imageCache.setObject(img!, forKey: post.img_Url as NSString)
+                    }
+                }
+            })
+        }
     }
 
    

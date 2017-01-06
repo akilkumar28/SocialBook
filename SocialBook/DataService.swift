@@ -10,6 +10,7 @@ import Foundation
 import Firebase
 
 let DB_Base = FIRDatabase.database().reference()
+let Storeage_Base = FIRStorage.storage().reference()
 
 class DataService {
     
@@ -17,6 +18,7 @@ class DataService {
     
     private var _Ref_User = DB_Base.child("user")
     private var _Red_Post = DB_Base.child("post")
+    private var _Ref_Storage_PostPics = Storeage_Base.child("post-pics")
     
     var ref_user: FIRDatabaseReference {
         return _Ref_User
@@ -24,6 +26,10 @@ class DataService {
     
     var ref_post: FIRDatabaseReference {
         return _Red_Post
+    }
+    
+    var ref_storage_postpics: FIRStorageReference {
+        return _Ref_Storage_PostPics
     }
     
     func createFirebaseDbUser(uid: String, userData:Dictionary<String, String>) {
