@@ -382,6 +382,9 @@
                                                     <constraint firstAttribute="width" constant="60" id="tAC-Nb-c4g"/>
                                                 </constraints>
                                                 <state key="normal" title="Button" image="add-post"/>
+                                                <connections>
+                                                    <action selector="postBtnPrssd:" destination="5xk-2u-RnH" eventType="touchUpInside" id="SFw-Mz-G6t"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -452,6 +455,7 @@
                         <outlet property="addimgView" destination="G0r-C4-6eJ" id="dd6-YB-yV0"/>
                         <outlet property="postbtn" destination="uqG-XK-9Nb" id="8ai-0K-rfG"/>
                         <outlet property="tableView" destination="NLB-nD-qsO" id="TbH-7I-aS6"/>
+                        <outlet property="woymTxtFld" destination="o4A-mc-ejJ" id="eFu-ir-JXZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VOK-Uh-jFJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
