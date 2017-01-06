@@ -26,6 +26,13 @@ class PostCell: UITableViewCell {
         likecountLbl.roundLbl()
         generalLikebtn.corner()
     }
+    
+    func configureCell(post: Post) {
+        
+        caption.text = post.caption
+        likecountLbl.text = "\(post.likes)"
+        
+    }
 
    
 
