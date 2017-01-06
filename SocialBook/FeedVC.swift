@@ -10,15 +10,15 @@ import UIKit
 import SwiftKeychainWrapper
 import Firebase
 
-class FeedVC: UIViewController, UITableViewDelegate,UITableViewDataSource {
+class FeedVC: UIViewController, UITableViewDelegate,UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
+    @IBOutlet weak var addimgView: FancyImageView!
     @IBOutlet weak var postbtn: FancyButton!
-    
-    
-    
     @IBOutlet weak var tableView: UITableView!
     
     var postArray = [Post]()
+    
+    let imagePicker = UIImagePickerController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +26,8 @@ class FeedVC: UIViewController, UITableViewDelegate,UITableViewDataSource {
         postbtn.generalButn()
         tableView.delegate = self
         tableView.dataSource = self
+        imagePicker.delegate = self
+        imagePicker.allowsEditing = true
         
         DataService.ds.ref_post.observe(.value, with: { (Snapshot) in
             self.postArray = []
@@ -80,7 +82,21 @@ class FeedVC: UIViewController, UITableViewDelegate,UITableViewDataSource {
         
     }
     
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
+        if let image = info[UIImagePickerControllerEditedImage] as? UIImage{
+            addimgView.image = image
+        } else {
+            print("Invalid Image provided")
+        }
+        imagePicker.dismiss(animated: true, completion: nil)
+    }
     
+    
+    @IBAction func addImageViewPrssd(_ sender: Any) {
+        
+        present(imagePicker, animated: true, completion: nil)
+    }
     
 
     

@@ -32,7 +32,7 @@ class FancyButton: UIButton {
     }
     func generalButn () {
         layer.masksToBounds = true
-        layer.cornerRadius = 5.0
+        layer.cornerRadius = self.frame.width / 2
         
     }
 
