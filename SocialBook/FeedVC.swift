@@ -114,6 +114,7 @@ class FeedVC: UIViewController, UITableViewDelegate,UITableViewDataSource, UIIma
         
         guard let img = addimgView.image, imageSelectd == true else {
             print("Invalid. Please Add an Image")
+            self.view.makeToast("Invalid. Please Add an Image", duration: 5, position: .center)
             return
         }
         guard let txtdata = woymTxtFld.text, txtdata != "" else {

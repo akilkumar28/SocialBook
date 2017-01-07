@@ -12,6 +12,7 @@ import FBSDKLoginKit
 import Firebase
 import SwiftKeychainWrapper
 
+
 class SignInVC: UIViewController {
 
     @IBOutlet weak var signInBtn: FancyButton!
@@ -21,6 +22,7 @@ class SignInVC: UIViewController {
     
     @IBOutlet weak var pswdTxtFld: FancytxtFld!
     
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -33,6 +35,7 @@ class SignInVC: UIViewController {
         
         if let _ = KeychainWrapper.standard.string(forKey: "uid"){
             print("Successfully Entered Automatically")
+            
             performSegue(withIdentifier: "FeedVC", sender: nil)
         }
         
@@ -98,6 +101,7 @@ class SignInVC: UIViewController {
                         print("Email Authentication Failed")
                     } else {
                         print("Successfull Authentication With Email")
+                        
                         if let user = user {
                             let user_data = ["provider":user.providerID]
                             self.completeSignIn(id: user.uid, userData: user_data)
