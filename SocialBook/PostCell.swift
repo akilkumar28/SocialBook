@@ -37,7 +37,7 @@ class PostCell: UITableViewCell {
         likesRef = DataService.ds.Ref_Current_User.child("likes").child(post.postkey)
         caption.text = post.caption
         likecountLbl.text = "\(post.likes)"
-        
+//        nameLbl.text = DataService.ds.Ref_Current_User.value(forKey: "Name") as! String?
         if img != nil {
             self.centerImg.image = img
         } else {

@@ -99,6 +99,7 @@ class FeedVC: UIViewController, UITableViewDelegate,UITableViewDataSource, UIIma
             imageSelectd = true
         } else {
             print("Invalid Image provided")
+            self.view.makeToast("Invalid Image provided", duration: 3, position: .center)
         }
         imagePicker.dismiss(animated: true, completion: nil)
     }
@@ -119,6 +120,7 @@ class FeedVC: UIViewController, UITableViewDelegate,UITableViewDataSource, UIIma
         }
         guard let txtdata = woymTxtFld.text, txtdata != "" else {
             print("Please Enter Some Text To Post")
+            self.view.makeToast("Please Enter Some Text To Post", duration: 3, position: .center)
             return
         }
         
