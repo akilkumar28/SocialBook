@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "017F5A96E0911A6DFC83932D68CCE5EF"
-               BuildableName = "SwiftKeychainWrapper.framework"
-               BlueprintName = "SwiftKeychainWrapper"
+               BlueprintIdentifier = "3229681B025C8AA58EEE8FCAB29683AE"
+               BuildableName = "Toast_Swift.framework"
+               BlueprintName = "Toast-Swift"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,9 +45,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "017F5A96E0911A6DFC83932D68CCE5EF"
-            BuildableName = "SwiftKeychainWrapper.framework"
-            BlueprintName = "SwiftKeychainWrapper"
+            BlueprintIdentifier = "3229681B025C8AA58EEE8FCAB29683AE"
+            BuildableName = "Toast_Swift.framework"
+            BlueprintName = "Toast-Swift"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

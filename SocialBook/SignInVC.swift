@@ -12,6 +12,7 @@ import FBSDKLoginKit
 import Firebase
 import SwiftKeychainWrapper
 
+
 class SignInVC: UIViewController {
 
     @IBOutlet weak var signInBtn: FancyButton!
@@ -21,6 +22,7 @@ class SignInVC: UIViewController {
     
     @IBOutlet weak var pswdTxtFld: FancytxtFld!
     
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -32,7 +34,9 @@ class SignInVC: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         
         if let _ = KeychainWrapper.standard.string(forKey: "uid"){
-            print("Successfully Entered Automatically")
+            print("Successfully Signed In Automatically")
+            self.view.makeToast("Successfully Signed In Automatically", duration: 3, position: .center)
+            
             performSegue(withIdentifier: "FeedVC", sender: nil)
         }
         
@@ -47,11 +51,13 @@ class SignInVC: UIViewController {
             
             if error != nil {
                 print("Facebook authentication falied")
+                self.view.makeToast("Facebook authentication falied", duration: 3, position: .center)
             } else if result?.isCancelled == true {
                 print("User Cancelled FaceBook Authentication")
             } else {
                 let credential = FIRFacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
-                print("Authentication Successfull with Facebook")
+                print("Successfull Authentication with Facebook")
+                self.view.makeToast("Successfull Authentication with Facebook", duration: 3, position: .center)
                 self.firbaseAuth(Credential: credential)
             }
         }
@@ -73,37 +79,35 @@ class SignInVC: UIViewController {
         })
         
     }
+    
+    
+    @IBAction func newmemSignUpPrsd(_ sender: Any) {
+        
+        performSegue(withIdentifier: "InfoVC", sender: nil)
+        
+    }
 
 
     @IBAction func signInBtnPrssd(_ sender: Any) {
         
         guard let email = emailTxtFld.text, !email.isEmpty else{
             print("Invalid Email ID")
+            self.view.makeToast("Invalid Email ID", duration: 3, position: .center)
             return
         }
         guard let pwd = pswdTxtFld.text, !pwd.isEmpty else {
             print("Invalid Password")
+            self.view.makeToast("Invalid Password", duration: 3, position: .center)
             return
         }
         FIRAuth.auth()?.signIn(withEmail: email, password: pwd, completion: { (user, error) in
             if error == nil {
-                print("Successfull Authentication With Email")
+                print("Authentication Successfull With Email")
+                self.view.makeToast("Authentication Successfull With Email", duration: 1, position: .center)
                 if let user = user{
                     let user_data = ["provider":user.providerID]
                     self.completeSignIn(id: user.uid, userData: user_data)
                 }
-            }else {
-                FIRAuth.auth()?.createUser(withEmail: email, password: pwd, completion: { (user, error) in
-                    if error != nil {
-                        print("Email Authentication Failed")
-                    } else {
-                        print("Successfull Authentication With Email")
-                        if let user = user {
-                            let user_data = ["provider":user.providerID]
-                            self.completeSignIn(id: user.uid, userData: user_data)
-                        }
-                    }
-                })
             }
         })
     }
@@ -113,7 +117,7 @@ class SignInVC: UIViewController {
         DataService.ds.createFirebaseDbUser(uid: id, userData: userData)
         let saveSuccessfull = KeychainWrapper.standard.set(id, forKey: "uid")
         print("Succesfull stored keyChain = \(saveSuccessfull)")
-        performSegue(withIdentifier: "FeedVC", sender: nil)
+        performSegue(withIdentifier:"FeedVC", sender: nil)
         
     }
  
